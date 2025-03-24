@@ -1,0 +1,16 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: xapps.app.uppound.com
+spec:
+  compositeTypeRef:
+    apiVersion: app.uppound.com/v1alpha1
+    kind: XApp
+  mode: Pipeline
+  pipeline:
+  - functionRef:
+      name: rae-sharp-docs-new-projectdemo-function
+    step: demo-function
+  - functionRef:
+      name: crossplane-contrib-function-auto-ready
+    step: crossplane-contrib-function-auto-ready

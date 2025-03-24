@@ -1,0 +1,63 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xapps.app.uppound.com
+spec:
+  claimNames:
+    kind: App
+    plural: apps
+  group: app.uppound.com
+  names:
+    categories:
+    - crossplane
+    kind: XApp
+    plural: xapps
+  versions:
+  - name: v1alpha1
+    referenceable: true
+    schema:
+      openAPIV3Schema:
+        description: App is the Schema for the App API.
+        properties:
+          spec:
+            description: AppSpec defines the desired state of App.
+            properties:
+              parameters:
+                properties:
+                  bucketName:
+                    type: string
+                  containers:
+                    items:
+                      properties:
+                        image:
+                          type: string
+                        name:
+                          type: string
+                      type: object
+                    type: array
+                  engine:
+                    type: string
+                  id:
+                    type: string
+                  nodes:
+                    properties:
+                      count:
+                        type: number
+                      instanceType:
+                        type: string
+                    type: object
+                  region:
+                    type: string
+                  size:
+                    type: string
+                  version:
+                    type: string
+                type: object
+            type: object
+          status:
+            description: AppStatus defines the observed state of App.
+            type: object
+        required:
+        - spec
+        type: object
+    served: true

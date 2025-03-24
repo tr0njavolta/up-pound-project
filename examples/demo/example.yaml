@@ -1,0 +1,22 @@
+apiVersion: app.uppound.com/v1alpha1
+kind: App
+metadata:
+  name: example
+  namespace: default
+spec:
+  parameters:
+    id: uppound-aws
+    containers:
+      - name: frontend
+        image: tr0njavolta/uppound-demo-frontend:latest
+      - name: backend
+        image: tr0njavolta/uppound-demo-backend:latest
+    region: us-east-1
+    version: "1.27"
+    nodes:
+      count: 2
+      instanceType: t3.small
+    size: large
+    engine: postgresql
+  writeConnectionSecretToRef:
+    name: uppound-aws-kubeconfig
