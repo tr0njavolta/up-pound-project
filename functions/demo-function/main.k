@@ -1,16 +1,9 @@
-import models.com.uppound.app.v1alpha1 as appv1alpha1
+import models.com.upppound.app.v1alpha1 as appv1alpha1
 import models.k8s.apimachinery.pkg.apis.meta.v1 as metav1
 import datetime
-import models.io.upbound.aws.ec2.v1beta1 as ec2v1alpha1
-import models.io.upbound.aws.ec2.v1beta2 as ec2v1beta2
-import models.io.upbound.aws.eks.v1beta1 as eksv1beta1
-import models.io.upbound.aws.eks.v1beta2 as eksv1beta2
-import models.io.upbound.aws.iam.v1beta1 as iamv1beta1
-import models.io.upbound.aws.rds.v1beta1 as rdsv1beta1
-import models.io.upbound.aws.rds.v1beta2 as rdsv1beta2
-import models.io.upbound.aws.rds.v1beta3 as rdsv1beta3
-import models.io.upbound.aws.s3.v1beta1 as s3v1beta1
 import models.io.upbound.aws.s3.v1beta2 as s3v1beta2
+import models.k8s.api.apps.v1 as appsv1
+import models.k8s.api.core.v1 as corev1
 
 time = datetime.ticks()
 # observed composite resource
@@ -28,9 +21,9 @@ version: any = oxr.spec.parameters.version
 instanceType: any = oxr.spec.parameters.nodes.instanceType
 count: any = oxr.spec.parameters.nodes.count
 size: any = oxr.spec.parameters.size
-engine: any =oxr.spec.parameters.engine
+engine: any = oxr.spec.parameters.engine
 baseName = "{}-{}".format(oxr.metadata.name, time)
-
+dbversion: any = oxr.spec.parameters.dbversion
 
 _metadata = lambda name: str -> any {
     {
@@ -47,7 +40,7 @@ _items = [
                 region: region
             }
         }
-    }
+    },
     {
         "apiVersion" = "aws.platform.upbound.io/v1alpha1"
         "kind" = "XNetwork"
@@ -65,7 +58,7 @@ _items = [
                 "region" = region
             }
         }
-    }
+    },
     {
         "apiVersion" = "aws.platform.upbound.io/v1alpha1"
         "kind" = "XEKS"
@@ -88,12 +81,12 @@ _items = [
                 }
             }
         }
-    }
+    },
     {
         "apiVersion" = "aws.platform.upbound.io/v1alpha1"
-        "kind" = "XRDS"
+        "kind" = "XSQLInstance"
         "metadata" = {
-            "name" = "configuration-aws-rds"
+            "name" = "configuration-aws-database"
         }
         "spec" = {
             "compositionSelector" = {
@@ -103,11 +96,36 @@ _items = [
             }
             "parameters" = {
                 "id" = "{}-{}".format(baseName, id)
+                "engine" = engine
+                "networkRef" = {
+                    id = ""
+                }
                 "region" = region
-                "version" = version
+                "storageGB" = 1
+                "passwordSecretRef" = {
+                    "key" = "password"
+                    "name" = "psqlsecret"
+                    "namespace" = "default"
+                }
             }
         }
+    },
+    {
+        "apiVersion" = "apps/v1"
+        "kind" = "Deployment"
+        "metadata" = _metadata("{}-frontend".format(baseName))
+        "spec" = {
+            "replicas" = 1
+            "selector" = {
+                "matchLabels" = {
+                    "app" = "frontend"
+                }
+            }
+        }
+
     }
+
 ]
+
 
 items = _items
