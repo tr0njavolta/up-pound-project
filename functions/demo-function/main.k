@@ -137,7 +137,6 @@ _items = [
             }
             "writeConnectionSecretToRef": {
                 "name": "{}-eks-kubeconfig".format(baseName)
-                # You might want to change this to match your environment
                 "namespace": "default"
             }
         }
@@ -160,7 +159,6 @@ _items = [
                 }
             }
             "parameters": {
-                "id": "{}-{}".format(baseName, id)
                 "engine": engine
                 "networkRef": {
                     "id": "{}-{}".format(baseName, id)
