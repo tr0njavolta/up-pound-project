@@ -1,8 +1,7 @@
 apiVersion: app.uppound.com/v1alpha1
-kind: App
+kind: XApp
 metadata:
   name: example
-  namespace: default
 spec:
   parameters:
     id: uppound-aws
@@ -21,3 +20,4 @@ spec:
     dbVersion: "13.18"
   writeConnectionSecretToRef:
     name: uppound-aws-kubeconfig
+    namespace: default

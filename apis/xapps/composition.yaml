@@ -8,8 +8,11 @@ spec:
     kind: XApp
   mode: Pipeline
   pipeline:
+  # - functionRef:
+  #     name: acmeco-uppound-ctpcompose-app-python
+  #   step: compose-app-python
   - functionRef:
-      name: rae-sharp-docs-new-projectdemo-function
+      name: acmeco-uppound-ctpcompose-app-kcl
     step: demo-function
   - functionRef:
       name: crossplane-contrib-function-auto-ready
