@@ -37,6 +37,8 @@ spec:
                     type: array
                   engine:
                     type: string
+                  dbVersion:
+                    type: string
                   id:
                     type: string
                   nodes:
