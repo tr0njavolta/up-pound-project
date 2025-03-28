@@ -4,6 +4,9 @@ metadata:
   name: example
   namespace: default
 spec:
+  compositionSelector:
+    matchLabels:
+      language: kcl
   parameters:
     id: uppound-aws
     containers:
