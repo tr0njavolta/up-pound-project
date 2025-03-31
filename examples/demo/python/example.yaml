@@ -1,8 +1,12 @@
 apiVersion: app.uppound.com/v1alpha1
-kind: XApp
+kind: App
 metadata:
   name: example
+  namespace: default
 spec:
+  compositionSelector:
+    matchLabels:
+      language: python
   parameters:
     id: uppound-aws
     containers:
@@ -20,4 +24,3 @@ spec:
     dbVersion: "13.18"
   writeConnectionSecretToRef:
     name: uppound-aws-kubeconfig
-    namespace: default
