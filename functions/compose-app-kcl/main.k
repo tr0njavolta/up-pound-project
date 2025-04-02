@@ -6,6 +6,7 @@ oxr = appv1alpha1.XApp {**option("params").oxr}
 _ocds = option("params").ocds
 _dxr = option("params").dxr
 dcds = option("params").dcds
+_er = option("params")?.extraResources
 
 _metadata = lambda name: str -> any {
     {
@@ -33,6 +34,7 @@ if _er?.rdsInstance:
     _dbUrl = _er?.rdsInstance[0]?.Resource?.status?.atProvider?.address or ""
 
 _items = [
+    _details, 
     # bucket config
     s3v1beta2.Bucket {
         metadata: _metadata("{}-bucket-{}".format(oxr.metadata.name, "upbound"))
