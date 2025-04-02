@@ -6,6 +6,7 @@ oxr = appv1alpha1.XApp {**option("params").oxr}
 _ocds = option("params").ocds
 _dxr = option("params").dxr
 dcds = option("params").dcds
+_er = option("params")?.extraResources
 
 _metadata = lambda name: str -> any {
     {
@@ -14,7 +15,26 @@ _metadata = lambda name: str -> any {
     }
 }
 
+# This fetches the RDSInstance composed by the XSQLInstance XR, since the URL it's serving from gets posted on the status of this resource.
+_details = {
+    apiVersion: "meta.krm.kcl.dev/v1alpha1"
+    kind: "ExtraResources"
+    requirements = {
+        rdsInstance = {
+            apiVersion: "rds.aws.upbound.io/v1beta1",
+            kind: "Instance",
+            matchLabels: {
+                "crossplane.io/claim-name": oxr.metadata.labels["crossplane.io/claim-name"]
+            }
+        }
+    }
+}
+_dbUrl = ""
+if _er?.rdsInstance:
+    _dbUrl = _er?.rdsInstance[0]?.Resource?.status?.atProvider?.address or ""
+
 _items = [
+    _details, 
     # bucket config
     s3v1beta2.Bucket {
         metadata: _metadata("{}-bucket-{}".format(oxr.metadata.name, "upbound"))
@@ -160,6 +180,12 @@ _items = [
                                    {
                                     name: "backend"
                                     image: oxr.spec.parameters.containers[1].image
+                                    env: [
+                                        {
+                                            name: 'DATABASE_URL'
+                                            value: _dbUrl
+                                        }
+                                    ]
                                     ports: [
                                         {
                                             containerPort: 80
