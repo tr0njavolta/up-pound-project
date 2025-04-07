@@ -1,5 +1,5 @@
 [package]
-name = "xapps-function"
+name = "uppound-function"
 version = "0.0.1"
 
 [dependencies]

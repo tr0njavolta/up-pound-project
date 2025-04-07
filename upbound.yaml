@@ -1,7 +1,7 @@
 apiVersion: meta.dev.upbound.io/v1alpha1
 kind: Project
 metadata:
-  name: uppound-ctp
+  name: uppound 
 spec:
   dependsOn:
   - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
@@ -9,17 +9,21 @@ spec:
   - configuration: xpkg.upbound.io/upbound/configuration-aws-eks
     version: '>=v0.0.0'
   - configuration: xpkg.upbound.io/upbound/configuration-aws-database
-    version: '>=v0.0.0'
+    version: v0.15.0
   - configuration: xpkg.upbound.io/upbound/configuration-aws-network
-    version: '>=v0.0.0'
+    version: v0.23.0
   - provider: xpkg.upbound.io/upbound/provider-aws-s3
-    version: '>=v0.0.0'
+    version: v1.21.1
   - provider: xpkg.upbound.io/upbound/provider-kubernetes
+    version: v0.16.0
+  - configuration: xpkg.upbound.io/upbound/configuration-eks
+    version: v0.0.3
+  - provider: xpkg.upbound.io/upbound/provider-family-aws
     version: '>=v0.0.0'
   description: This is where you can describe your project.
   license: Apache-2.0
   maintainer: Upbound User <user@example.com>
   readme: |
     This is where you can add a readme for your project.
-  repository: xpkg.upbound.io/acmeco/uppound-ctp
+  repository: xpkg.upbound.io/acmeco/uppound
   source: github.com/upbound/project-template

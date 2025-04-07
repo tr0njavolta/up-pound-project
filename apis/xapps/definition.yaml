@@ -1,12 +1,12 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: xapps.app.uppound.com
+  name: xapps.app.uppound.io
 spec:
   claimNames:
     kind: App
     plural: apps
-  group: app.uppound.com
+  group: app.uppound.io
   names:
     categories:
     - crossplane

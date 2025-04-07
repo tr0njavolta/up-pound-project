@@ -4,7 +4,8 @@ metadata:
   name: default
 spec:
   credentials:
-    source: Upbound
-    upbound:
-      webIdentity:
-        roleARN: "arn:aws:iam::609897127049:role/example-project-aws-uptest"
+    source: Secret
+    secretRef:
+      namespace: default
+      name: aws-creds
+      key: credentials
