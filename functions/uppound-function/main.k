@@ -475,21 +475,20 @@ _items = [
                           message TEXT,
                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         );
-                        INSERT INTO pets (name, species, breed, age, description, image_url)
-                        VALUES 
-                          ('Hayden', 'Cat', 'Longhair domestic', 10, 'A sleepy, cuddly companion who can say "Hello" when she wants food.', '/images/hayden.jpg'),
-                          ('Milo', 'Dog', 'English Springer Spaniel', 1, 'Sweet and energetic puppy who loves attention', '/images/milo.jpg'),
-                          ('Phelix', 'Cat', 'Shorthair domestic', 1, 'Curious and playful kitten', '/images/phelix.jpg'),
-                          ('Jerry', 'Small', 'Ferret', 100, 'A wizard turned into a ferret after a spell gone wrong.', '/images/jerry.jpg'),
-                          ('Boogie', 'Dog', 'French Bulldog', 5, 'A lazy, loyal family dog', '/images/boogie.jpg'),
-                          ('Artemis', 'Cat', 'Tabby', 6, 'Artemis is blinged-out. If you have to ask you can''t afford her', '/images/artemis.jpg'),
-                          ('Simon', 'Cat', 'American Shorthair', 5, 'Cross-eyed and cuddly, Simon only has eyes for you', '/images/simon.jpg'),
-                          ('Eva', 'Dog', 'Bearded Collie', 16, 'She isn''t just a good dog, she''s the best dog, and will not tolerate any other dog that gets in the way of that', '/images/eva.jpg'),
-                          ('Rosie', 'Dog', 'Airedale', 5,'Rosie''s always up for an adventure... or a nap...','/images/rosie.jpg'),
-                          ('Winnie', 'Dog', 'Mini Schauzer', 5,'Winnie *allegedly* commited some light breaking and entering for a PupCup' ,'/images/winnie.jpg'),
-                          ('Luffy', 'Cat', 'Tuxedo', 5,'Luffy''s always ready for a black-tie event' ,'/images/luffy.jpg'),
-                          ('Minik', 'Cat', 'Shorthair domestic', 6,'Minik loves treats, catnip, and controlling the weather with his mind' ,'/images/minik.jpg'),
-                          ('Mochi', 'Dog', 'Sharpei', 16, 'A handsome, well-dressed adventurer with a knack for finding the coziest cuddle spots', '/images/mochi.jpg');"""
+                        INSERT INTO pets (name, type, breed, age, description, image_url) VALUES
+                        ('Hayden', 'Cat', 'Longhair domestic', 10, 'A sleepy, cuddly companion who can say "Hello" when she wants food.', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/hayden.jpg'),
+                        ('Milo', 'Dog', 'English Springer Spaniel', 1, 'Sweet and energetic puppy who loves attention', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/milo.jpg'),
+                        ('Phelix', 'Cat', 'Shorthair domestic', 1, 'Curious and playful kitten', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/phelix.jpg'),
+                        ('Jerry', 'Small', 'Ferret', 100, 'A wizard turned into a ferret after a spell gone wrong.', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/jerry.jpg'),
+                        ('Boogie', 'Dog', 'French Bulldog', 5, 'A lazy, loyal family dog', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/boogie.jpg'),
+                        ('Artemis', 'Cat', 'Tabby', 6, 'Artemis is blinged-out. If you have to ask you can''t afford her', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/artemis.jpg'),
+                        ('Simon', 'Cat', 'American Shorthair', 5, 'Cross-eyed and cuddly, Simon only has eyes for you', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/simon.jpg'),
+                        ('Eva', 'Dog', 'Bearded Collie', 16, 'She isn''t just a good dog, she''s the best dog, and will not tolerate any other dog that gets in the way of that', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/eva.jpg'),
+                        ('Rosie', 'Dog', 'Airedale', 5,'Rosie''s always up for an adventure... or a nap...','https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/rosie.jpg'),
+                        ('Winnie', 'Dog', 'Mini Schauzer', 5,'Winnie *allegedly* commited some light breaking and entering for a PupCup' ,'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/winnie.jpg'),
+                        ('Luffy', 'Cat', 'Tuxedo', 5,'Luffy''s always ready for a black-tie event' ,'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/luffy.jpg'),
+                        ('Minik', 'Cat', 'Shorthair domestic', 6,'Minik loves treats, catnip, and controlling the weather with his mind' ,'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/minik.jpg'),
+                        ('Mochi', 'Dog', 'Sharpei', 16, 'A handsome, well-dressed adventurer with a knack for finding the coziest cuddle spots', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/mochi.jpg');"""
                     }
                 }
             }
