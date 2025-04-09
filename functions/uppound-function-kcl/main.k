@@ -475,7 +475,7 @@ _items = [
                           message TEXT,
                           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         );
-                        INSERT INTO pets (name, type, breed, age, description, image_url) VALUES
+                        INSERT INTO pets (name, species, breed, age, description, image_url) VALUES
                         ('Hayden', 'Cat', 'Longhair domestic', 10, 'A sleepy, cuddly companion who can say "Hello" when she wants food.', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/hayden.jpg'),
                         ('Milo', 'Dog', 'English Springer Spaniel', 1, 'Sweet and energetic puppy who loves attention', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/milo.jpg'),
                         ('Phelix', 'Cat', 'Shorthair domestic', 1, 'Curious and playful kitten', 'https://raw.githubusercontent.com/tr0njavolta/uppound-demo/main/images/phelix.jpg'),
