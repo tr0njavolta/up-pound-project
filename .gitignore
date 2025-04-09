@@ -1,0 +1,6 @@
+_output
+.venv
+.up
+.env
+aws-creds.conf
+.DS_Store
