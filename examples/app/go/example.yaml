@@ -1,0 +1,23 @@
+apiVersion: app.uppound.io/v1alpha1
+kind: XApp
+metadata:
+  name: example
+spec:
+  compositionSelector:
+    matchLabels:
+      language: go
+  parameters:
+    id: uppound-aws
+    containers:
+      - name: frontend
+        image: tr0njavolta/uppound-demo-frontend:latest
+      - name: backend
+        image: tr0njavolta/uppound-demo-backend:latest
+    region: us-west-2
+    version: "1.27"
+    nodes:
+      count: 3
+      instanceType: t3.small
+  writeConnectionSecretToRef:
+    name: uppound-aws-kubeconfig
+    namespace: default
