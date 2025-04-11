@@ -23,9 +23,14 @@ Build and run the project:
 up project build && up project run
 ```
 
+Move the project to your Upbound account:
+
+```shell
+up project move ${yourUpboundaccount}/up-pound-project
+```
+
 Deploy your resources:
 
 ```
 kubectl apply -f examples/app/kcl/example.yaml
-
 ```
