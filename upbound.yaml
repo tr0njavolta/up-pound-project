@@ -1,7 +1,7 @@
 apiVersion: meta.dev.upbound.io/v1alpha1
 kind: Project
 metadata:
-  name: uppound 
+  name: uppound-aws
 spec:
   dependsOn:
   - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
@@ -19,5 +19,5 @@ spec:
   maintainer: Upbound User <user@example.com>
   readme: |
     This is where you can add a readme for your project.
-  repository: xpkg.upbound.io/acmeco/uppound
+  repository: xpkg.upbound.io/acmeco/uppound-aws
   source: github.com/upbound/project-template
