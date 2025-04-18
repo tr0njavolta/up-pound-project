@@ -14,7 +14,7 @@ spec:
       - name: backend
         image: xpkg.upbound.io/upbound/uppound-demo-backend:latest
     region: us-west-2
-    version: "1.27"
+    version: "1.31"
     nodes:
       count: 3
       instanceType: t3.small
