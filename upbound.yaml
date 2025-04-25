@@ -1,7 +1,7 @@
 apiVersion: meta.dev.upbound.io/v1alpha1
 kind: Project
 metadata:
-  name: uppound-aws-res
+  name: uppound-aws
 spec:
   dependsOn:
   - function: xpkg.upbound.io/crossplane-contrib/function-auto-ready
