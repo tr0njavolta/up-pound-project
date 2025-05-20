@@ -9,7 +9,7 @@ spec:
   - configuration: xpkg.upbound.io/upbound/configuration-aws-eks
     version: '>=v0.0.0'
   - configuration: xpkg.upbound.io/upbound/configuration-aws-network
-    version: v0.23.0
+    version: '>=v0.23.0'
   - provider: xpkg.upbound.io/upbound/provider-kubernetes
     version: v0.16.0
   description: This is where you can describe your project.
